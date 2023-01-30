@@ -131,31 +131,21 @@ makeBroccoli();
 // Bonus 2 - Promise all
 
 const step1 = obtainInstruction("brusselsSprouts", 0);
-document.querySelector("#brusselsSprouts").innerHTML += `<li>${step1}</li>`
-
 const step2 = obtainInstruction("brusselsSprouts", 1);
-document.querySelector("#brusselsSprouts").innerHTML += `<li>${step2}</li>`
-
 const step3 = obtainInstruction("brusselsSprouts", 2);
-document.querySelector("#brusselsSprouts").innerHTML += `<li>${step3}</li>`
-
 const step4 = obtainInstruction("brusselsSprouts", 3);
-document.querySelector("#brusselsSprouts").innerHTML += `<li>${step4}</li>`
-
 const step5 = obtainInstruction("brusselsSprouts", 4);
-document.querySelector("#brusselsSprouts").innerHTML += `<li>${step5}</li>`
-
 const step6 = obtainInstruction("brusselsSprouts", 5);
-document.querySelector("#brusselsSprouts").innerHTML += `<li>${step6}</li>`
-
 const step7 = obtainInstruction("brusselsSprouts", 6);
-document.querySelector("#brusselsSprouts").innerHTML += `<li>${step7}</li>`
-
 const step8 = obtainInstruction("brusselsSprouts", 7);
-document.querySelector("#brusselsSprouts").innerHTML += `<li>${step8}</li>`
 
-Promise.all([step1, step2, step3, step4, step5, step6, step7, step8]);
-.then()
+const promisesArray = [step1, step2, step3, step4, step5, step6, step7, step8];
 
-document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussels sprouts are ready!</li>`
+Promise.all(promisesArray)
+.then((result) => {
+  result.forEach((step) => {
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>${step}</li>`;
+  });
+  document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussels sprouts are ready!</li>`
+})
 
